@@ -26,14 +26,14 @@ const start = async () => {
     const connectionDb = await mongoose.connect("mongodb+srv://araj53062_db_user:0MOClqpN3jzTxkqM@cluster0.jzuyu99.mongodb.net/")
 
     console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
-    server.listen(app.get("port"), () => {
-        console.log("LISTENIN ON PORT 8000")
+    // server.listen(app.get("port"), () => {
+    //     console.log("LISTENING ON PORT 8000")
+    // });
+    const PORT = process.env.PORT || 8000;
+
+    server.listen(PORT, () => {
+        console.log(`SERVER RUNNING ON PORT ${PORT}`);
     });
-
-
-
 }
-
-
 
 start();
