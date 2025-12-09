@@ -1,6 +1,6 @@
 import httpStatus from "http-status";
 import { User } from "../models/user.model.js";
-import bcrypt, { hash } from "bcrypt"
+import bcrypt, { hash } from "bcryptjs"
 
 import crypto from "crypto"
 import { Meeting } from "../models/meeting.model.js";
@@ -47,7 +47,7 @@ const register = async (req, res) => {
             return res.status(httpStatus.FOUND).json({ message: "User already exists" });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10);
+        const hashedPassword = await .hash(password, 10);
 
         const newUser = new User({
             name: name,
